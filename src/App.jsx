@@ -1,4 +1,3 @@
-import './App.css';
 import About from './components/About';
 import Footer from './components/Footer';
 import Home from './components/Home';
@@ -8,14 +7,15 @@ import Skills from './components/Skills';
 
 function App() {
   return (
-    <div className="App">
-      <Navbar/>
-      <Home/>
-      <Projects/>
-      <Skills/>
-      <About/>
-      <Footer/>
-    </div>
+    <>
+      <Navbar />
+      <Home />
+      <Skills />
+      <Projects />
+      <About />
+      <Footer />
+    </>
+    
   );
 }
 

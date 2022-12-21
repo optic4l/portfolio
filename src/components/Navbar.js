@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { HashLink } from 'react-router-hash-link';
 import styled from 'styled-components';
 import BurgerButton from './BurgerButton';
 
@@ -8,21 +9,35 @@ const Navbar = () => {
         setClicked(!clicked);
     }
 
+    const handleClickLink = () => {
+        if(clicked) {
+            setClicked(false);
+        }
+    }
+
+    const scrollWithOffset = (el) => {
+        const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
+        const yOffset = -38; 
+        window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' }); 
+    }
+
     return(
         <NavContainer>
-            <h2>
+            <HashLink smooth scroll={scrollWithOffset} to='/#'>
+                <h2>
                 Lucas <span>Droguett</span>
-            </h2>
+                </h2>
+            </HashLink>
             <div className={`links ${clicked ? 'active' : '' }`}>
-                <a onClick={handleClick} href='#home'>Home</a>
-                <a onClick={handleClick} href='#projects'>Projects</a>
-                <a onClick={handleClick} href='#skills'>Skills</a>
-                <a onClick={handleClick} href='#about-me'>About me</a>
+                <HashLink smooth to='/#'scroll={scrollWithOffset} onClick={ handleClickLink }>Home</HashLink>
+                <HashLink smooth to='/#skills' scroll={scrollWithOffset } onClick={ handleClickLink }>Skills</HashLink> 
+                <HashLink smooth to='/#projects' scroll={scrollWithOffset} onClick={ handleClickLink }>Projects</HashLink>
+                <HashLink smooth to='/#about' scroll={scrollWithOffset} onClick={ handleClickLink }>About me</HashLink>
             </div>
             <div className='burger'>
                 <BurgerButton clicked={clicked} handleClick={handleClick}/>
             </div>
-            <Bgdiv className={`initial ${clicked ? 'acitve' : ''}`} ></Bgdiv>
+            <Bgdiv className={`initial ${clicked ? 'active' : ''}`} ></Bgdiv>
         </NavContainer>
     );
 }
@@ -40,6 +55,8 @@ const NavContainer = styled.nav`
     align-items: center;
     justify-content: space-between;
     background-color: #1E1959;
+    position: fixed;
+    width: 100%;
         a {
         text-decoration: none;
         margin-right: 1rem;
@@ -73,19 +90,21 @@ const NavContainer = styled.nav`
     }
 
     .links.active {
-        width: 100%;
-        display: block;
-        position: absolute;
-        margin-left: auto;
-        margin-right: auto;
-        top: 30%;
-        left: 0;
-        right: 0;
-        text-align: center;
-        a {
-            font-size: 2rem;
-            margin-top: 1rem;
-            color: white;
+        @media(max-width: 768px) {
+            width: 100%;
+            display: block;
+            position: absolute;
+            margin-left: auto;
+            margin-right: auto;
+            top: 30%;
+            left: 0;
+            right: 0;
+            text-align: center;
+            a {
+                font-size: 2rem;
+                margin-top: 1rem;
+                color: white;
+            }
         }
     } 
 
@@ -102,13 +121,15 @@ const Bgdiv = styled.div`
     top: -7000;
     left: -2000;
     transition: all .6s ease;
-    &.acitve {
-        border-radius: 0 0 80% 0;
-        top: 0;
-        left: 0;
-        width: 100%;    
-        height: 100%;
-        z-index: -1;
+    @media(max-width: 768px){
+        &.active {
+            border-radius: 0 0 80% 0;
+            top: 0;
+            left: 0;
+            width: 100%;    
+            height: 100%;
+            z-index: -1;
+        }
     }
 `
 
