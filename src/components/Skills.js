@@ -13,7 +13,7 @@ const Skills = () => {
 const StyledSkills = styled.div`
     display: flex;
     height: 90vh;
-    background-color: green;
+    background-color: #E6DDC4;
 
 `
 

@@ -13,7 +13,8 @@ const Projects = ()=> {
 const StyledProjects = styled.div`
     display: flex;
     height: 90vh;
-    background-color: gray;
+    background-color: #678983;
+    color: #F0E9D2;
 
 `
 export default Projects;

@@ -14,7 +14,7 @@ const About = () => {
 const StyledAbout = styled.div`
     display: flex;
     height: 90vh;
-    background-color: red;
+    background-color: #E6DDC4;
 
 `
 

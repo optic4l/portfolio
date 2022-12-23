@@ -23,6 +23,7 @@ const Navbar = () => {
 
     return(
         <NavContainer>
+    
             <HashLink smooth scroll={scrollWithOffset} to='/#'>
                 <h2>
                 Lucas <span>Droguett</span>
@@ -45,7 +46,7 @@ const Navbar = () => {
 const NavContainer = styled.nav`
     h2 {
         font-weight: 400;
-        color: white;
+        color: #F0E9D2;
         span {
             font-weight: bold;
         }
@@ -54,13 +55,15 @@ const NavContainer = styled.nav`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #1E1959;
+    background-color: #313e62;
     position: fixed;
+    z-index: 100;
     width: 100%;
+    box-shadow: 0 0 15px 0 rgba(0,0,0,0.7);
         a {
         text-decoration: none;
         margin-right: 1rem;
-        color: white;
+        color: #F0E9D2;
     }
 
     .links{
@@ -76,6 +79,10 @@ const NavContainer = styled.nav`
             color: black;
             font-size: 2rem;
             display: block;
+        }
+
+        a:hover {
+            border-bottom: 2px solid #E6DDC4;
         }
 
         @media(min-width: 768px) {
