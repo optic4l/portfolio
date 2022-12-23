@@ -31,9 +31,11 @@ const Navbar = () => {
             </HashLink>
             <div className={`links ${clicked ? 'active' : '' }`}>
                 <HashLink smooth to='/#'scroll={scrollWithOffset} onClick={ handleClickLink }>Home</HashLink>
-                <HashLink smooth to='/#skills' scroll={scrollWithOffset } onClick={ handleClickLink }>Skills</HashLink> 
                 <HashLink smooth to='/#projects' scroll={scrollWithOffset} onClick={ handleClickLink }>Projects</HashLink>
                 <HashLink smooth to='/#about' scroll={scrollWithOffset} onClick={ handleClickLink }>About me</HashLink>
+            </div>
+            <div className='button-cv'>
+                <button>Download CV</button>
             </div>
             <div className='burger'>
                 <BurgerButton clicked={clicked} handleClick={handleClick}/>
@@ -51,7 +53,7 @@ const NavContainer = styled.nav`
             font-weight: bold;
         }
     }
-    padding: .4rem;
+    padding: 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -113,7 +115,19 @@ const NavContainer = styled.nav`
                 color: white;
             }
         }
-    } 
+    }    
+    
+    .button-cv {
+        
+    }
+
+    button {
+        border: none;
+        border-radius: 5px;
+        background-color: #AD8431;
+        padding: .4rem;
+        color: white;
+    }
 
     .burger {
         @media (min-width: 768px) {

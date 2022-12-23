@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import '../img/fotocarne.png'
 
 const Home = () => {
     return(
@@ -13,7 +12,7 @@ const Home = () => {
 
                 </div>
                 <div className='home-img-container'>
-                    <img src={require('../img/fotocarne.png')} alt='foto-personal'/>
+                    <img src={require('../img/florid-software-developer.png')} alt='foto-personal'/>
                 </div>
             </StyledHome>
         </section>
@@ -27,7 +26,7 @@ const StyledHome = styled.div`
     align-items: center;
     width: 100%;
     height: 90vh;
-    background-color: #031838;
+    background-color: #5F9AFA;
 
     div  {
         width: 50%;
@@ -42,9 +41,7 @@ const StyledHome = styled.div`
         img  {
             width: 60%;
             height: 80%;
-            border-radius: 50%;
-            filter: drop-shadow(0px 10px 10px #000000);
-            filter: grayscale(50%);
+            
         }
     }
 
